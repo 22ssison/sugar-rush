@@ -9,14 +9,21 @@ class_name Bird
 @onready var animation_player = $AnimationPlayer
 
 var max_speed = 400
+var  is_started = false # when it starts it should apply the gravity but if not,  it should not apply the gravity.
+
 
 func _ready():
 	velocity = Vector2.ZERO #describing how our character is moving, in this case: its not going to move.
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump"): #pressing space to apply movement/gravity for character
+		if !is_started:
+			is_started = true 
 		jump()
 	
+	  
+	if !is_started: #if not is_started 
+		return
 	velocity.y += gravity * delta
 	
 	velocity.y = min(velocity.y, max_speed)
