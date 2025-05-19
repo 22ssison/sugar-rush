@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwrko88y1fpoh"]
+
+[ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_mcegt"]
+[ext_resource type="Texture2D" uid="uid://ckh7bdl20y5kk" path="res://Assets/yellowbird-midflap.png" id="2_dnvpi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl8r2"]
+radius = 6.99999
+height = 20.0
+
+[node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_mcegt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(0.507354, 0.562496)
+texture = ExtResource("2_dnvpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vl8r2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
