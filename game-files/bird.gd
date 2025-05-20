@@ -14,11 +14,13 @@ var  is_started = false # when it starts it should apply the gravity but if not,
 
 func _ready():
 	velocity = Vector2.ZERO #describing how our character is moving, in this case: its not going to move.
+	animation_player.play("idle" )
 	
 func _physics_process(delta):
 	if Input.is_action_just_pressed("jump"): #pressing space to apply movement/gravity for character
-		if !is_started:
-			is_started = true 
+		if !is_started: 
+			animation_player.play("flap_wings")
+			is_started =  true 
 		jump()
 	
 	  

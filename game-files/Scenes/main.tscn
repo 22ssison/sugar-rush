@@ -5,11 +5,9 @@
 
 [node name="main" type="Node"]
 
-[node name="Background-day(1)" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_bo1nx")
 
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="Background" type="Sprite2D" parent="."]
