@@ -10,14 +10,14 @@ class_name Bird
 
 var max_speed = 400
 var  is_started = false # when it starts it should apply the gravity but if not,  it should not apply the gravity.
-
+var should_process_input = true #by default yes input by user
 
 func _ready():
 	velocity = Vector2.ZERO #describing how our character is moving, in this case: its not going to move.
 	animation_player.play("idle" )
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("jump"): #pressing space to apply movement/gravity for character
+	if Input.is_action_just_pressed("jump") && should_process_input: # read input by user
 		if !is_started: 
 			animation_player.play("flap_wings")
 			is_started =  true 
@@ -31,7 +31,7 @@ func _physics_process(delta):
 	velocity.y = min(velocity.y, max_speed)
 	
 	move_and_collide(velocity * delta)
-
+	
 	rotate_bird()
   
 func jump():
@@ -43,6 +43,12 @@ func rotate_bird():
 	#rotate downwards when falling
 	if velocity.y > 0 && rad_to_deg(rotation) < 90:
 		rotation += rotation_speed * deg_to_rad(1)
-	# Rotate upwards when rising
+	# Rotate upwaards when rising
 	elif velocity.y < 0 && rad_to_deg(rotation) > -30:
 		rotation -= rotation_speed * deg_to_rad(1)
+
+func stop():
+	animation_player.stop()
+	gravity = 0 # do not continue movement down
+	velocity = Vector2.ZERO
+	#should_process_input = false # if not, then the bird stop.

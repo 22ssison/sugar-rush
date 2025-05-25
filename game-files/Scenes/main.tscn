@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=4 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="Texture2D" uid="uid://5gedru2rbjlh" path="res://Assets/background-day (1).png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bivrs3glix5yo" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
 
 [node name="main" type="Node"]
 
@@ -11,3 +12,6 @@ texture = ExtResource("1_bo1nx")
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ground" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(24, 200)
