@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cwrko88y1fpoh"]
+[gd_scene load_steps=10 format=3 uid="uid://cwrko88y1fpoh"]
 
+[ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_vl8r2"]
 [ext_resource type="Texture2D" uid="uid://ckh7bdl20y5kk" path="res://Assets/yellowbird-midflap.png" id="2_dnvpi"]
 [ext_resource type="Texture2D" uid="uid://bomw0cqhj0os2" path="res://Assets/yellowbird-downflap.png" id="3_vl8r2"]
 [ext_resource type="Texture2D" uid="uid://cvtg7feno0ivy" path="res://Assets/yellowbird-upflap.png" id="4_rr33m"]
@@ -76,6 +77,7 @@ _data = {
 }
 
 [node name="Bird" type="CharacterBody2D"]
+script = ExtResource("1_vl8r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
