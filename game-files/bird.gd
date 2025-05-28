@@ -56,4 +56,4 @@ func stop():
 	animation_player.stop()
 	gravity = 0 # do not continue movement down
 	velocity = Vector2.ZERO
-	#should_process_input = false # if not, then the bird stop.
+	should_process_input = false # if not, then the bird stop.
