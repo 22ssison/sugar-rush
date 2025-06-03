@@ -14,11 +14,10 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready():
-	spawn_timer.timeout.connect(spawn_pipe)
 	spawn_timer.start()
 	
 func start_spawning_pipes():
-	pass #test
+	spawn_timer.timeout.connect(spawn_pipe)
 	
 func spawn_pipe():
 	var pipe = pipe_pair_scene.instantiate() as PipePair

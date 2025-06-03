@@ -1,11 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=6 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="Texture2D" uid="uid://5gedru2rbjlh" path="res://Assets/background-day (1).png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
 
 [node name="main" type="Node"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_kry3j")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture = ExtResource("1_bo1nx")
