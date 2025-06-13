@@ -9,7 +9,6 @@ signal game_started
 @export var rotation_speed = 2
 
 @onready var animation_player = $AnimationPlayer
-
 var max_speed = 400
 var  is_started = false # when it starts it should apply the gravity but if not,  it should not apply the gravity.
 var should_process_input = true #by default yes input by user
@@ -58,3 +57,8 @@ func stop():
 	gravity = 0 # do not continue movement down
 	velocity = Vector2.ZERO
 	should_process_input = false # if not, then the bird stop.
+
+
+func _on_moon_button_pressed() -> void:
+	gravity = 450
+	jump_force = -300

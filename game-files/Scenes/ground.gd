@@ -3,6 +3,7 @@ extends Node2D
 class_name Ground
 
 signal bird_crashed # signal to other nodes that something had changed/happend.
+signal point_scored
 
 @export var speed = -150
 
@@ -25,6 +26,9 @@ func _process(delta): # movement of the ground passing by
 	if sprite2.global_position.x < -sprite2.texture.get_width():
 		sprite2.global_position.x = sprite1.global_position.x + sprite1.texture.get_width()
 
+func on_point_scored(body):
+	speed += 30 # speeds up the gamepley of the pipes. Note: make sure to also change the speed of the ground and the pipes spawning.
+	point_scored.emit()
 
 func _on_body_entered(body): # ground1 & 2 connected to this function here.
 	bird_crashed.emit()
@@ -33,3 +37,7 @@ func _on_body_entered(body): # ground1 & 2 connected to this function here.
 	
 func stop():
 	speed = 0
+
+
+func _on_button_2_pressed() -> void:
+	speed = -300

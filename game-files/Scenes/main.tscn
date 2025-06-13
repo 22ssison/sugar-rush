@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=8 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="Texture2D" uid="uid://5gedru2rbjlh" path="res://Assets/background-day (1).png" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
+[ext_resource type="Texture2D" uid="uid://jv8r5oht6532" path="res://icon.svg" id="2_6bp64"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://blor60n0ixx28" path="res://Scenes/ui.tscn" id="6_21xkr"]
@@ -11,6 +12,10 @@
 
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_kry3j")
+
+[node name="Backround 2" type="Sprite2D" parent="."]
+position = Vector2(1, -82)
+texture = ExtResource("2_6bp64")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(-2.00001, -1.49997)
@@ -27,3 +32,23 @@ position = Vector2(-28, 231)
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
+
+[node name="Moon Button" type="Button" parent="UI"]
+offset_top = 119.0
+offset_right = 57.0
+offset_bottom = 150.0
+text = "Moon "
+
+[node name="Speed Button" type="Button" parent="UI"]
+offset_top = 150.0
+offset_right = 56.0
+offset_bottom = 181.0
+text = "Speed"
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Press space to start "
+
+[connection signal="pressed" from="UI/Moon Button" to="Bird" method="_on_moon_button_pressed"]
+[connection signal="pressed" from="UI/Speed Button" to="PipeSpawner" method="_on_speed_button_pressed"]

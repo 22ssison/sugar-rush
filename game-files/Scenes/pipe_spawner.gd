@@ -10,7 +10,7 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 
 
 @export var pipe_speed = -150 
-
+@onready var timer = $"../Timer"
 @onready var spawn_timer: Timer = $SpawnTimer
 
 func _ready():
@@ -46,3 +46,8 @@ func stop():
 	
 func on_point_scored():
 	point_scored.emit()
+ 
+func _on_speed_button_pressed() -> void:
+	pipe_speed = -300 # if you change the pipe speed, but not the ground speed, this is great when you want to change the scene after a certain point. Its very cool. 
+		
+	#	add a variable how many pipes spawn at a time. however, you need to setup to make sure that works
