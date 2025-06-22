@@ -7,13 +7,13 @@ extends Node
 @onready var ui: CanvasLayer = $"../UI" as UI
 @onready var label: Label = $"../Label" as Label
 @onready var moon = $"../UI/Moon Button"
-@onready var background1 = $"../Background"
-@onready var background2 = $"../Backround 2"
+
+ #to implement different background just create background 3 and 4
+# then implement it on randomize()
 
 var points = 0
 
 func _ready():
-	randomize()
 	bird.game_started.connect(on_game_started)
 	ground.bird_crashed.connect(end_game)
 	pipe_spawner.bird_crashed.connect(end_game)
@@ -32,10 +32,5 @@ func end_game():
 	ui.on_game_over( )
 	
 func on_point_scored():
-	randomize()
-	var show_backround1 = randf() < 0.5
-	var show_backround2 = randf() < 0.5
 	points += 1
 	ui.update_points(points)
-	background1.visible = show_backround1
-	background2.visible = show_backround2

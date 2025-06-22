@@ -13,21 +13,29 @@
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_kry3j")
 
-[node name="Backround 2" type="Sprite2D" parent="."]
+[node name="Background 4" type="Sprite2D" parent="."]
+
+[node name="Background 3" type="Sprite2D" parent="."]
+
+[node name="Background 2" type="Sprite2D" parent="."]
 position = Vector2(1, -82)
 texture = ExtResource("2_6bp64")
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(-2.00001, -1.49997)
-scale = Vector2(1.34722, 1.19727)
+[node name="Background 1" type="Sprite2D" parent="."]
+position = Vector2(6.10352e-05, -3.50006)
+scale = Vector2(9.99306, 3.49805)
 texture = ExtResource("1_bo1nx")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Ground" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(-28, 231)
+position = Vector2(60, 766)
+scale = Vector2(9, 4.5)
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
+
+[node name="Bird 2" type="CharacterBody2D" parent="."]
+scale = Vector2(1.2, 1.2)
 
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
