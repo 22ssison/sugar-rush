@@ -16,7 +16,7 @@ func _on_body_entered(body):
 	bird_entered.emit()
 	
 func on_point_scored(body):
-	speed += 30 # speeds up the gamepley of the pipes. Note: make sure to also change the speed of the ground and the pipes spawning.
+	speed += 35 # speeds up the gamepley of the pipes. Note: make sure to also change the speed of the ground and the pipes spawning.
 	point_scored.emit()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

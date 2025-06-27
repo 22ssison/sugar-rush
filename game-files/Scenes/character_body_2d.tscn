@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://uh7gk5waxe6j" path="res://Assets/base.png" id="1_ymxaj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88kja"]
-size = Vector2(328, 11)
+size = Vector2(313, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_it8n0"]
 size = Vector2(344, 11)
@@ -20,18 +20,18 @@ scale = Vector2(1, 1.19643)
 texture = ExtResource("1_ymxaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground1"]
-position = Vector2(-4, -48.5)
+position = Vector2(-11.5, -48.5)
 shape = SubResource("RectangleShape2D_88kja")
 
 [node name="Ground2" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-position = Vector2(336, 11)
+position = Vector2(313, 11)
 scale = Vector2(1, 1.19643)
 texture = ExtResource("1_ymxaj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-position = Vector2(332, -48.5)
+position = Vector2(309, -48)
 shape = SubResource("RectangleShape2D_it8n0")
 
 [connection signal="body_entered" from="Ground1" to="." method="_on_body_entered"]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwrko88y1fpoh"]
 
 [ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_vl8r2"]
-[ext_resource type="Texture2D" uid="uid://ckh7bdl20y5kk" path="res://Assets/yellowbird-midflap.png" id="2_dnvpi"]
-[ext_resource type="Texture2D" uid="uid://bomw0cqhj0os2" path="res://Assets/yellowbird-downflap.png" id="3_vl8r2"]
-[ext_resource type="Texture2D" uid="uid://cvtg7feno0ivy" path="res://Assets/yellowbird-upflap.png" id="4_rr33m"]
+[ext_resource type="Texture2D" uid="uid://cjg574t2mfqy7" path="res://Assets/pinkbird-downflap.png" id="2_rr33m"]
+[ext_resource type="Texture2D" uid="uid://dww64btua8qnn" path="res://Assets/pinkbird-midflap.png" id="3_vl8r2"]
+[ext_resource type="Texture2D" uid="uid://bt33ptayrrccs" path="res://Assets/pinkbird-upflap.png" id="4_rr33m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl8r2"]
 radius = 8.33333
@@ -11,6 +11,7 @@ height = 21.6667
 
 [sub_resource type="Animation" id="Animation_dnvpi"]
 length = 0.001
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,13 +34,13 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_dnvpi")]
+"values": [ExtResource("2_rr33m")]
 }
 
 [sub_resource type="Animation" id="Animation_xf4a6"]
 resource_name = "flap_wings"
 length = 0.3
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,12 +51,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_vl8r2"), ExtResource("2_dnvpi"), ExtResource("4_rr33m")]
+"values": [ExtResource("2_rr33m"), ExtResource("3_vl8r2"), ExtResource("4_rr33m")]
 }
 
 [sub_resource type="Animation" id="Animation_mcegt"]
 resource_name = "idle"
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,14 +78,14 @@ _data = {
 }
 
 [node name="Bird" type="CharacterBody2D"]
-scale = Vector2(5.2, 5.2)
+scale = Vector2(5.1, 5.1)
 script = ExtResource("1_vl8r2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.596814, 0.663193)
-texture = ExtResource("2_dnvpi")
+texture = ExtResource("2_rr33m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.38419e-07, -9.53674e-07)

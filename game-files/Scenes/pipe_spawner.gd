@@ -13,7 +13,7 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 @onready var background_3 = $"../Background 3"
 @onready var background_4 = $"../Background 4"
 
-@export var pipe_speed = -150 
+@export var pipe_speed = -500
 @onready var timer = $"../Timer"
 @onready var spawn_timer: Timer = $SpawnTimer
 var hidden_points =  0

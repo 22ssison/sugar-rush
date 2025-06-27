@@ -16,8 +16,9 @@ size = Vector2(5, 132)
 script = ExtResource("1_d5igu")
 
 [node name="TopPipe" type="Area2D" parent="."]
-position = Vector2(0, -300)
+position = Vector2(0, -1200)
 rotation = 3.14159
+scale = Vector2(3, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="TopPipe"]
 texture = ExtResource("2_6ox5h")
@@ -27,7 +28,8 @@ position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_wsb3u")
 
 [node name="BottomPipe" type="Area2D" parent="."]
-position = Vector2(0, 300)
+position = Vector2(0, 1200)
+scale = Vector2(3, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="BottomPipe"]
 texture = ExtResource("2_6ox5h")

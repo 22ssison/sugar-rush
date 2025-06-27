@@ -4,12 +4,12 @@ class_name Bird
 
 signal game_started
 
-@export var gravity = 900.0 # can change this
-@export var jump_force = -300
+@export var gravity = 3600.0 # can change this
+@export var jump_force = -1200 # multiply everything by 4 from the initial.
 @export var rotation_speed = 2
 
 @onready var animation_player = $AnimationPlayer
-var max_speed = 400
+var max_speed = 1600
 var  is_started = false # when it starts it should apply the gravity but if not,  it should not apply the gravity.
 var should_process_input = true #by default yes input by user
 

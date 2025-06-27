@@ -26,18 +26,19 @@ position = Vector2(6.10352e-05, -3.50006)
 scale = Vector2(9.99306, 3.49805)
 texture = ExtResource("1_bo1nx")
 
+[node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
+pipe_speed = -450
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Ground" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(60, 766)
-scale = Vector2(9, 4.5)
+position = Vector2(227, 738)
+scale = Vector2(10, 4.2)
 
-[node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
+[node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="Bird 2" type="CharacterBody2D" parent="."]
 scale = Vector2(1.2, 1.2)
-
-[node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 
