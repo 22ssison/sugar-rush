@@ -3,9 +3,6 @@ extends Node
 @onready var bird: Bird = $"../Bird" as Bird
 @onready var pipe_spawner: PipeSpawner = $"../PipeSpawner" as PipeSpawner
 @onready var ground: Ground = $"../Ground" as Ground
-@onready var fade: Node = $"../Fade"
-
-
 @onready var ui: CanvasLayer = $"../UI" as UI
 @onready var label: Label = $"../Label" as Label
 @onready var moon = $"../UI/Moon Button"
@@ -27,7 +24,6 @@ func on_game_started():
 	moon.visible = false #when you start, button disappears. 
 func end_game():
 	moon.visible = true # when you die, button reappears.
-	fade.play()
 	ground.stop()
 	bird.kill()
 	pipe_spawner.stop( )
