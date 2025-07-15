@@ -1,13 +1,19 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwrko88y1fpoh"]
+[gd_scene load_steps=20 format=3 uid="uid://cwrko88y1fpoh"]
 
 [ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_vl8r2"]
 [ext_resource type="Texture2D" uid="uid://cjg574t2mfqy7" path="res://Assets/pinkbird-downflap.png" id="2_rr33m"]
 [ext_resource type="Texture2D" uid="uid://6efbhy5exngx" path="res://Assets/marshmallowbird-downflap.png" id="3_xf4a6"]
+[ext_resource type="Texture2D" uid="uid://c7p8cn611qisa" path="res://Assets/candywrapperbird-downflap.png" id="4_n8o4c"]
 [ext_resource type="Texture2D" uid="uid://cqpudhc1hklyb" path="res://Assets/marshmallowbird-midflap (1).png" id="4_pfwoh"]
 [ext_resource type="Texture2D" uid="uid://1sy8x8jpkjew" path="res://Assets/marshmallowbird-upflap.png" id="5_om1ab"]
 [ext_resource type="Texture2D" uid="uid://defr756mqwh7x" path="res://Assets/gummybird-downflap.png" id="5_rr33m"]
 [ext_resource type="Texture2D" uid="uid://cs0nsvno8qqb0" path="res://Assets/gummybird-midflap (1).png" id="7_om1ab"]
 [ext_resource type="Texture2D" uid="uid://dv0ul0iod3m8y" path="res://Assets/gummybird-upflap.png" id="8_oc6qe"]
+[ext_resource type="Texture2D" uid="uid://c55r82oqf5iht" path="res://Assets/candywrapperbird-midflap (1).png" id="10_61cv0"]
+[ext_resource type="Texture2D" uid="uid://cuwvxf10yv8jl" path="res://Assets/candywrapperbird-upflap.png" id="11_o08xy"]
+[ext_resource type="Texture2D" uid="uid://clts3k0ra2t1q" path="res://Assets/chocbird-downflap.png" id="12_ktp83"]
+[ext_resource type="Texture2D" uid="uid://cvjohr3ai315n" path="res://Assets/chocbird-midflap.png" id="13_o08xy"]
+[ext_resource type="Texture2D" uid="uid://dfjbbrtvwa4tq" path="res://Assets/chocbird-upflap.png" id="14_ktp83"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl8r2"]
 radius = 8.33333
@@ -52,6 +58,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [ExtResource("5_rr33m")]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("candywrapbird:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_n8o4c")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("chocbird:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_ktp83")]
+}
 
 [sub_resource type="Animation" id="Animation_xf4a6"]
 resource_name = "flap_wings"
@@ -81,6 +111,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [ExtResource("5_rr33m"), ExtResource("7_om1ab"), ExtResource("8_oc6qe")]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("candywrapbird:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_n8o4c"), ExtResource("10_61cv0"), ExtResource("11_o08xy")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("chocbird:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("12_ktp83"), ExtResource("13_o08xy"), ExtResource("14_ktp83")]
+}
 
 [sub_resource type="Animation" id="Animation_mcegt"]
 resource_name = "idle"
@@ -109,13 +163,8 @@ _data = {
 scale = Vector2(5.1, 5.1)
 script = ExtResource("1_vl8r2")
 
-[node name="Marshmallowbird" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(-1.19209e-07, 0)
-scale = Vector2(0.596814, 0.663193)
-texture = ExtResource("2_rr33m")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 0.392157)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vl8r2")
@@ -125,6 +174,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_vl8r2")
 }
 
+[node name="chocbird" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.597, 0.663)
+texture = ExtResource("12_ktp83")
+
+[node name="candywrapbird" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.597, 0.663)
+texture = ExtResource("4_n8o4c")
+
 [node name="gummybird" type="Sprite2D" parent="."]
+texture_filter = 1
 scale = Vector2(0.597, 0.663)
 texture = ExtResource("5_rr33m")
+
+[node name="Marshmallowbird" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.596814, 0.663193)
+texture = ExtResource("2_rr33m")

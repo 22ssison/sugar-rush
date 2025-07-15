@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dx0vhvsthi046"]
+[gd_scene load_steps=9 format=3 uid="uid://dx0vhvsthi046"]
 
 [ext_resource type="Script" uid="uid://gpnhowejkrff" path="res://Scenes/pipe_pair.gd" id="1_d5igu"]
-[ext_resource type="Texture2D" uid="uid://cqjut2uxjbvrl" path="res://Assets/candycane-pipe.png" id="2_d5igu"]
 [ext_resource type="Texture2D" uid="uid://t7jcgjlg7mvx" path="res://Assets/marshmallow-pipe.png" id="3_6ox5h"]
+[ext_resource type="Texture2D" uid="uid://bo7jlrq7w748s" path="res://Assets/bluecandycane-pipe.png" id="4_1wd7e"]
+[ext_resource type="Texture2D" uid="uid://b3svv5wjkwngl" path="res://Assets/lolipop-pipe.png" id="4_wsb3u"]
+[ext_resource type="Texture2D" uid="uid://3fwaufv235li" path="res://Assets/waferpipe.png" id="5_1wd7e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsb3u"]
 size = Vector2(72, 281.25)
@@ -21,37 +23,62 @@ position = Vector2(0, -1200)
 rotation = 3.14159
 scale = Vector2(3, 4)
 
-[node name="candycanepipe" type="Sprite2D" parent="TopPipe"]
-position = Vector2(0, -125)
-scale = Vector2(0.15, 0.19)
-texture = ExtResource("2_d5igu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
-position = Vector2(1.33415, -101.625)
-shape = SubResource("RectangleShape2D_wsb3u")
+[node name="lollipoppipe" type="Sprite2D" parent="TopPipe"]
+visible = false
+position = Vector2(0, -110)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("4_wsb3u")
 
 [node name="marshmallowpipe" type="Sprite2D" parent="TopPipe"]
+visible = false
 position = Vector2(0, -110)
 scale = Vector2(0.19, 0.19)
 texture = ExtResource("3_6ox5h")
+
+[node name="candycanepipe" type="Sprite2D" parent="TopPipe"]
+visible = false
+position = Vector2(0, -125)
+scale = Vector2(0.15, 0.19)
+texture = ExtResource("4_1wd7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
+visible = false
+position = Vector2(1.33415, -101.625)
+shape = SubResource("RectangleShape2D_wsb3u")
+
+[node name="waferpipe" type="Sprite2D" parent="TopPipe"]
+visible = false
+position = Vector2(0, -110)
+scale = Vector2(0.19, 0.23)
+texture = ExtResource("5_1wd7e")
 
 [node name="BottomPipe" type="Area2D" parent="."]
 position = Vector2(0, 1200)
 scale = Vector2(3, 4)
 
-[node name="candycanepipe" type="Sprite2D" parent="BottomPipe"]
-position = Vector2(0, -125)
-scale = Vector2(0.15, 0.19)
-texture = ExtResource("2_d5igu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
-position = Vector2(5.5, -104.625)
-shape = SubResource("RectangleShape2D_1wd7e")
+[node name="lollipoppipe" type="Sprite2D" parent="BottomPipe"]
+position = Vector2(0, -110)
+scale = Vector2(0.19, 0.19)
+texture = ExtResource("4_wsb3u")
 
 [node name="marshmallowpipe" type="Sprite2D" parent="BottomPipe"]
 position = Vector2(0, -110)
 scale = Vector2(0.19, 0.19)
 texture = ExtResource("3_6ox5h")
+
+[node name="candycanepipe" type="Sprite2D" parent="BottomPipe"]
+position = Vector2(0, -125)
+scale = Vector2(0.15, 0.19)
+texture = ExtResource("4_1wd7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe"]
+position = Vector2(5.5, -104.625)
+shape = SubResource("RectangleShape2D_1wd7e")
+
+[node name="waferpipe" type="Sprite2D" parent="BottomPipe"]
+position = Vector2(0, -110)
+scale = Vector2(0.19, 0.23)
+texture = ExtResource("5_1wd7e")
 
 [node name="Scored" type="Area2D" parent="."]
 
