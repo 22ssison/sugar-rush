@@ -32,3 +32,5 @@ func end_game():
 func on_point_scored():
 	points += 1
 	ui.update_points(points)
+	
+# implement the random function to spawn random background, birds, etc all together. 

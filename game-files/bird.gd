@@ -7,7 +7,7 @@ signal game_started
 @export var gravity = 3600.0 # can change this
 @export var jump_force = -1200 # multiply everything by 4 from the initial.
 @export var rotation_speed = 2
-
+@onready var bird_1 = $Gummy
 @onready var animation_player = $AnimationPlayer
 var max_speed = 1600
 var  is_started = false # when it starts it should apply the gravity but if not,  it should not apply the gravity.
@@ -24,7 +24,6 @@ func _physics_process(delta):
 			animation_player.play("flap_wings")
 			is_started =  true 
 		jump()
-	
 	  
 	if !is_started: #if not is_started 
 		return
@@ -39,7 +38,6 @@ func _physics_process(delta):
 func jump():
 	velocity.y = jump_force
 	rotation = deg_to_rad(-30) 
-	
 	
 func rotate_bird():
 	#rotate downwards when falling

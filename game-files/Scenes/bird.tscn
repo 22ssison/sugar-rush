@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwrko88y1fpoh"]
+[gd_scene load_steps=14 format=3 uid="uid://cwrko88y1fpoh"]
 
 [ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_vl8r2"]
 [ext_resource type="Texture2D" uid="uid://cjg574t2mfqy7" path="res://Assets/pinkbird-downflap.png" id="2_rr33m"]
-[ext_resource type="Texture2D" uid="uid://dww64btua8qnn" path="res://Assets/pinkbird-midflap.png" id="3_vl8r2"]
-[ext_resource type="Texture2D" uid="uid://bt33ptayrrccs" path="res://Assets/pinkbird-upflap.png" id="4_rr33m"]
+[ext_resource type="Texture2D" uid="uid://6efbhy5exngx" path="res://Assets/marshmallowbird-downflap.png" id="3_xf4a6"]
+[ext_resource type="Texture2D" uid="uid://cqpudhc1hklyb" path="res://Assets/marshmallowbird-midflap (1).png" id="4_pfwoh"]
+[ext_resource type="Texture2D" uid="uid://1sy8x8jpkjew" path="res://Assets/marshmallowbird-upflap.png" id="5_om1ab"]
+[ext_resource type="Texture2D" uid="uid://defr756mqwh7x" path="res://Assets/gummybird-downflap.png" id="5_rr33m"]
+[ext_resource type="Texture2D" uid="uid://cs0nsvno8qqb0" path="res://Assets/gummybird-midflap (1).png" id="7_om1ab"]
+[ext_resource type="Texture2D" uid="uid://dv0ul0iod3m8y" path="res://Assets/gummybird-upflap.png" id="8_oc6qe"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl8r2"]
 radius = 8.33333
@@ -11,7 +15,7 @@ height = 21.6667
 
 [sub_resource type="Animation" id="Animation_dnvpi"]
 length = 0.001
-loop_mode = 1
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,7 +31,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/path = NodePath("Marshmallowbird:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,6 +39,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("2_rr33m")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gummybird:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_rr33m")]
 }
 
 [sub_resource type="Animation" id="Animation_xf4a6"]
@@ -44,14 +60,26 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("Marshmallowbird:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_rr33m"), ExtResource("3_vl8r2"), ExtResource("4_rr33m")]
+"values": [ExtResource("3_xf4a6"), ExtResource("4_pfwoh"), ExtResource("5_om1ab")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gummybird:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_rr33m"), ExtResource("7_om1ab"), ExtResource("8_oc6qe")]
 }
 
 [sub_resource type="Animation" id="Animation_mcegt"]
@@ -81,14 +109,14 @@ _data = {
 scale = Vector2(5.1, 5.1)
 script = ExtResource("1_vl8r2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Marshmallowbird" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.596814, 0.663193)
 texture = ExtResource("2_rr33m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.38419e-07, -9.53674e-07)
+position = Vector2(0, 0.392157)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_vl8r2")
 
@@ -96,3 +124,7 @@ shape = SubResource("CapsuleShape2D_vl8r2")
 libraries = {
 &"": SubResource("AnimationLibrary_vl8r2")
 }
+
+[node name="gummybird" type="Sprite2D" parent="."]
+scale = Vector2(0.597, 0.663)
+texture = ExtResource("5_rr33m")

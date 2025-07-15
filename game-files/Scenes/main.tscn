@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
-[ext_resource type="Texture2D" uid="uid://bxhv66rerjcou" path="res://Assets/wreck-it-ralph-og-test.jpg" id="2_6bp64"]
-[ext_resource type="Texture2D" uid="uid://dpd3x11fi4x87" path="res://Assets/background 11.jpg" id="3_6bp64"]
+[ext_resource type="Texture2D" uid="uid://c3tmchedrmn52" path="res://Assets/pixelated-candycane-forest.png" id="2_6bp64"]
+[ext_resource type="Texture2D" uid="uid://co3ea2rwc5fh4" path="res://Assets/pixelated-background.png" id="3_6bp64"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://blor60n0ixx28" path="res://Scenes/ui.tscn" id="6_21xkr"]
@@ -18,14 +18,13 @@ script = ExtResource("1_kry3j")
 [node name="Background 3" type="Sprite2D" parent="."]
 
 [node name="Background 2" type="Sprite2D" parent="."]
-position = Vector2(-3.99999, -164)
-scale = Vector2(1.49479, 1.75699)
+position = Vector2(25.0002, -56.0001)
+scale = Vector2(1.89453, 1.64453)
 texture = ExtResource("2_6bp64")
 
 [node name="Background 1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0.247253, 80.8689)
-scale = Vector2(2.66991, 1.96394)
+position = Vector2(24.0006, 70.5007)
+scale = Vector2(2.89453, 1.90723)
 texture = ExtResource("3_6bp64")
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
@@ -38,9 +37,6 @@ position = Vector2(227, 738)
 scale = Vector2(10, 4.2)
 
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
-
-[node name="Bird 2" type="CharacterBody2D" parent="."]
-scale = Vector2(1.2, 1.2)
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 

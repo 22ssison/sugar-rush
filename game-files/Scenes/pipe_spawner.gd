@@ -5,9 +5,11 @@ class_name PipeSpawner
 signal bird_crashed
 signal point_scored
 
-
+var bird_scene = preload("res://Scenes/bird.tscn")
 var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
-
+@onready var candycane = $TopPipe/candycanepipe
+@onready var bird_1 = $Marshmallowbird
+@onready var bird_2 = $gummybird
 @onready var background_1 = $"../Background 1"
 @onready var background_2 = $"../Background 2"
 @onready var background_3 = $"../Background 3"
@@ -18,6 +20,7 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 @onready var spawn_timer: Timer = $SpawnTimer
 var hidden_points =  0
 func _ready():
+	
 	spawn_timer.start()
 	randomize()
 
@@ -60,17 +63,27 @@ func stop():
 	
 func on_point_scored():
 	hidden_points += 1
-	if hidden_points == 5:
+	if hidden_points == 1:
 		point_scored.emit()
 		randomize()
 		var show_background1 = randf() < 0.5
 		var show_background2 = randf() < 0.5
+		#var show_bird1 = randf() < 0.5
+		#var show_bird2 = randf() < 0.5
+		var show_sprite2D = randf() < 0.5
+		var show_marshmallowpipe = randf() < 0.5
+		#var show_bird3 = randf() < 0.5
+		#var show_bird4 = randf() < 0.5
 		#var show_background3 = randf() < 0.5
 		#var show_background4 = randf() < 0.5
 		background_1.visible = show_background1
 		background_2.visible = show_background2
 		#background_3.visible = show_backround3
-		#background_4.visible = show_backround4
+		##background_4.visible = show_backround4
+ 		#show_marshmallowbird.visible = show_bird1
+		#show_marshmallowbird.visible = show_bird2
+		#cand ycane.visible = show_sprite2D
+		
 		hidden_points = 0
 	else:
 		point_scored.emit()
