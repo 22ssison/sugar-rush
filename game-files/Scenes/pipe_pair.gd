@@ -25,8 +25,8 @@ func _ready():
 
 func set_pipe_skin(index):
 	var use_candy = index == 0
-	var use_marsh = index == 2
 	var use_lol = index == 1
+	var use_marsh = index == 2
 	var use_waf = index == 3
 
 	# Top pipes

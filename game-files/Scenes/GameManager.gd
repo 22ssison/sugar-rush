@@ -5,7 +5,8 @@ extends Node
 @onready var ground: Ground = $"../Ground" as Ground
 @onready var ui: CanvasLayer = $"../UI" as UI
 @onready var label: Label = $"../Label" as Label
-@onready var moon = $"../UI/Moon Button"
+@onready var title: Button = $"../UI/Title"
+
 
  #to implement different background just create background 3 and 4
 # then implement it on randomize()
@@ -20,10 +21,9 @@ func _ready():
 	   
 func on_game_started(): 
 	label.visible = false # description of the game at the start.
+	title.visible = false
 	pipe_spawner.start_spawning_pipes()
-	moon.visible = false #when you start, button disappears. 
 func end_game():
-	moon.visible = true # when you die, button reappears.
 	ground.stop()
 	bird.kill()
 	pipe_spawner.stop( )

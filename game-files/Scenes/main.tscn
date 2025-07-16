@@ -1,14 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=18 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
-[ext_resource type="Texture2D" uid="uid://bd2xgjj4chc1c" path="res://Assets/Magnificent North Map The Ballad of Never After.jpg" id="2_6bp64"]
-[ext_resource type="Texture2D" uid="uid://vyi2o10cqfoa" path="res://Assets/Map of Magnificent North A Curse for True Love.jpg" id="2_344ge"]
-[ext_resource type="Texture2D" uid="uid://dj7y8n23kt5if" path="res://Assets/Fly South FJ30807.jpg" id="2_ynf5e"]
-[ext_resource type="Texture2D" uid="uid://bgtf70vv17i5t" path="res://Assets/Valenda Map (Caraval).jpg" id="3_6bp64"]
+[ext_resource type="Texture2D" uid="uid://lwieoscs27j7" path="res://Assets/LOVESHACKFANCY WALLPAPER.jpg" id="2_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://bgvxo0ikh0v7c" path="res://Assets/ 1.jpg" id="3_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://byspegu5yanmw" path="res://Assets/mbm.jpg" id="4_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
+[ext_resource type="Texture2D" uid="uid://byxj2bkgvhl5p" path="res://Assets/stripes.jpg" id="5_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://blor60n0ixx28" path="res://Scenes/ui.tscn" id="6_21xkr"]
+[ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://b3svv5wjkwngl" path="res://Assets/lolipop-pipe.png" id="11_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://t7jcgjlg7mvx" path="res://Assets/marshmallow-pipe.png" id="12_6iyac"]
+[ext_resource type="Texture2D" uid="uid://b60suk5x1esux" path="res://Assets/titlebanner.png" id="13_fdnlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdnlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkdf5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsu2k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k12tt"]
 
 [node name="main" type="Node"]
 
@@ -16,24 +28,24 @@
 script = ExtResource("1_kry3j")
 
 [node name="Background 4" type="Sprite2D" parent="."]
-position = Vector2(296, 76.5)
-scale = Vector2(4.72011, 3.97336)
-texture = ExtResource("2_6bp64")
+position = Vector2(-11.0003, -96.2572)
+scale = Vector2(3.94837, 3.89731)
+texture = ExtResource("2_fdnlq")
 
 [node name="Background 3" type="Sprite2D" parent="."]
-position = Vector2(-18, -58)
-scale = Vector2(3.90476, 3.49691)
-texture = ExtResource("2_344ge")
+position = Vector2(-10.9758, 148.431)
+scale = Vector2(3.92385, 2.93596)
+texture = ExtResource("3_fdnlq")
 
 [node name="Background 2" type="Sprite2D" parent="."]
-position = Vector2(29.5001, -1.99173)
-scale = Vector2(3.96603, 3.68656)
-texture = ExtResource("3_6bp64")
+position = Vector2(0.000183105, -171.5)
+scale = Vector2(3.92935, 4.75121)
+texture = ExtResource("4_fdnlq")
 
 [node name="Background 1" type="Sprite2D" parent="."]
-position = Vector2(6.51019, 426.659)
-scale = Vector2(4.80163, 4.45938)
-texture = ExtResource("2_ynf5e")
+position = Vector2(3, -20)
+scale = Vector2(3.99883, 3.18055)
+texture = ExtResource("5_fdnlq")
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
 pipe_speed = -450
@@ -48,22 +60,70 @@ scale = Vector2(10, 4.2)
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 
+[node name="moon" type="TextEdit" parent="UI"]
+modulate = Color(0, 0, 0, 1)
+top_level = true
+offset_left = 219.0
+offset_top = 214.0
+offset_right = 519.0
+offset_bottom = 514.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fdnlq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jkdf5")
+text = "moon"
+
 [node name="Moon Button" type="Button" parent="UI"]
-offset_top = 119.0
-offset_right = 57.0
-offset_bottom = 150.0
-text = "Moon "
+offset_left = 71.0
+offset_top = 64.0
+offset_right = 1103.0
+offset_bottom = 1608.0
+scale = Vector2(0.2, 0.202)
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("11_d1ilt")
+flat = true
 
 [node name="Speed Button" type="Button" parent="UI"]
-offset_top = 150.0
-offset_right = 56.0
-offset_bottom = 181.0
-text = "Speed"
+offset_left = 77.9999
+offset_top = 453.0
+offset_right = 1110.0
+offset_bottom = 1997.0
+scale = Vector2(0.2, 0.2)
+theme_override_fonts/font = ExtResource("10_hptm8")
+icon = ExtResource("12_6iyac")
+flat = true
+
+[node name="speed" type="TextEdit" parent="UI"]
+modulate = Color(0, 0, 0, 1)
+offset_left = 272.0
+offset_top = 539.0
+offset_right = 548.0
+offset_bottom = 871.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wsu2k")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_k12tt")
+text = "speed"
+
+[node name="Title" type="Button" parent="UI"]
+offset_left = 670.0
+offset_top = 9.0
+offset_right = 2214.0
+offset_bottom = 1041.0
+scale = Vector2(1, 0.8)
+icon = ExtResource("13_fdnlq")
+flat = true
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Press space to start "
+modulate = Color(0, 0, 0, 1)
+offset_left = 51.0
+offset_top = 24.0
+offset_right = 303.0
+offset_bottom = 65.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 30
+text = "Press SPACE to Fly"
 
 [connection signal="pressed" from="UI/Moon Button" to="Bird" method="_on_moon_button_pressed"]
 [connection signal="pressed" from="UI/Speed Button" to="PipeSpawner" method="_on_speed_button_pressed"]

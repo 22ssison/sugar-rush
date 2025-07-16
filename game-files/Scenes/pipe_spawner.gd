@@ -12,7 +12,9 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 @onready var bird_node = $"../Bird"
 @onready var bird_list = [
 	bird_node.get_node("Marshmallowbird"),
-	bird_node.get_node("gummybird")
+	bird_node.get_node("gummybird"),
+	bird_node.get_node("candywrapbird"),
+	bird_node.get_node("chocobird"),
 ]
 
 @onready var background_list = [
@@ -81,10 +83,14 @@ func _update_theme(index):
 
 	# Cycle birds
 	for i in range(bird_list.size()):
-		bird_list[i].visible = (i == index % bird_list.size())
+		print("Bird at index", i, ":", bird_list[i])
+		if bird_list[i] != null:
+			bird_list[i].visible = (i == index % bird_list.size())
+		else:
+			print("⚠️ bird_list[", i, "] is null!")
 
 	# Store index to apply to future pipes
-	current_pipe_skin_index = index % 2
+	current_pipe_skin_index = index % 4
 
 func _on_speed_button_pressed():
 	pipe_speed = -300

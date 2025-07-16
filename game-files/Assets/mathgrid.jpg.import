@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpd3x11fi4x87"
-path="res://.godot/imported/background 11.jpg-1d74718e65db9a9ff70db9fc4db1e5a2.ctex"
+uid="uid://dj54aet0qcgld"
+path="res://.godot/imported/mathgrid.jpg-24cd6471153e90143abfd0e9a69930a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background 11.jpg"
-dest_files=["res://.godot/imported/background 11.jpg-1d74718e65db9a9ff70db9fc4db1e5a2.ctex"]
+source_file="res://Assets/mathgrid.jpg"
+dest_files=["res://.godot/imported/mathgrid.jpg-24cd6471153e90143abfd0e9a69930a1.ctex"]
 
 [params]
 

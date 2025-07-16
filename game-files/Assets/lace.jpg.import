@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blkra1phmbl3f"
-path="res://.godot/imported/Fly South FJ30807.jpg-6765e702b0b17aa6d820b37fa3698f0d.ctex"
+uid="uid://c56t4urxs5gey"
+path="res://.godot/imported/lace.jpg-adb7d4e2bf5f4fd5d6a9d72a341c24fb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Fly South FJ30807.jpg"
-dest_files=["res://.godot/imported/Fly South FJ30807.jpg-6765e702b0b17aa6d820b37fa3698f0d.ctex"]
+source_file="res://Assets/lace.jpg"
+dest_files=["res://.godot/imported/lace.jpg-adb7d4e2bf5f4fd5d6a9d72a341c24fb.ctex"]
 
 [params]
 
