@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=16 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
@@ -16,11 +16,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdnlq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkdf5"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsu2k"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k12tt"]
 
 [node name="main" type="Node"]
 
@@ -60,7 +56,7 @@ scale = Vector2(10, 4.2)
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 
-[node name="moon" type="TextEdit" parent="UI"]
+[node name="moon" type="Label" parent="UI"]
 modulate = Color(0, 0, 0, 1)
 top_level = true
 offset_left = 219.0
@@ -70,7 +66,6 @@ offset_bottom = 514.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fdnlq")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_jkdf5")
 text = "moon"
 
 [node name="Moon Button" type="Button" parent="UI"]
@@ -94,7 +89,7 @@ theme_override_fonts/font = ExtResource("10_hptm8")
 icon = ExtResource("12_6iyac")
 flat = true
 
-[node name="speed" type="TextEdit" parent="UI"]
+[node name="speed" type="Label" parent="UI"]
 modulate = Color(0, 0, 0, 1)
 offset_left = 272.0
 offset_top = 539.0
@@ -103,7 +98,6 @@ offset_bottom = 871.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wsu2k")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_k12tt")
 text = "speed"
 
 [node name="Title" type="Button" parent="UI"]
@@ -114,6 +108,14 @@ offset_bottom = 1041.0
 scale = Vector2(1, 0.8)
 icon = ExtResource("13_fdnlq")
 flat = true
+
+[node name="HighScoreLabel" type="Label" parent="UI"]
+offset_left = 345.0
+offset_top = 1323.0
+offset_right = 825.0
+offset_bottom = 1482.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 140
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
