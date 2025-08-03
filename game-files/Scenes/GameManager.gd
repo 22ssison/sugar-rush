@@ -58,3 +58,12 @@ func load_high_score():
 		high_score = 0
 	
 # implement the random function to spawn random background, birds, etc all together. 
+
+
+func _on_point_button_pressed() -> void:
+	on_point_scored()
+
+
+func _on_reset_point_pressed() -> void:
+	high_score = 0
+	points = 0

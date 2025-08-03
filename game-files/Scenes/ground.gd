@@ -34,6 +34,6 @@ func _on_body_entered(body):
 
 func stop():
 	speed = 0
-
+	
 func _on_button_2_pressed():
 	speed = -300

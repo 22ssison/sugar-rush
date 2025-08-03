@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crpbuopeu70j5" path="res://Scenes/ui.gd" id="1_qdvrb"]
 [ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="2_nf4gj"]
-[ext_resource type="Texture2D" uid="uid://c0x3judqdeokc" path="res://Assets/ChatGPT Image Jul 16, 2025, 07_29_42 PM.png" id="3_nf4gj"]
+[ext_resource type="Texture2D" uid="uid://b60suk5x1esux" path="res://Assets/titlebanner.png" id="3_nf4gj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxero"]
 bg_color = Color(0.635294, 0.698039, 0.721569, 1)
