@@ -47,7 +47,7 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_jxero")
 
-[node name="Button" type="Button" parent="MarginContainer/GameOverBox/Panel"]
+[node name="reset_button" type="Button" parent="MarginContainer/GameOverBox/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -65,4 +65,4 @@ theme_override_font_sizes/font_size = 90
 text = "RESTART "
 flat = true
 
-[connection signal="pressed" from="MarginContainer/GameOverBox/Panel/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/GameOverBox/Panel/reset_button" to="." method="_on_reset_button_pressed"]
