@@ -38,7 +38,8 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/GameOverBox"]
+[node name="Title" type="TextureRect" parent="MarginContainer/GameOverBox"]
+visible = false
 layout_mode = 2
 texture = ExtResource("3_nf4gj")
 

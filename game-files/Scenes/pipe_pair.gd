@@ -18,7 +18,6 @@ signal point_scored
 @onready var bottom_waf_pipe = get_node("BottomPipe/waferpipe")
 
 var speed = 0
-
 func _ready():
 	print("Top candy pipe:", top_candy_pipe)
 	print("Bottom candy pipe:", bottom_candy_pipe)
@@ -56,3 +55,7 @@ func on_point_scored(body):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
+
+
+func _on_perfect_score_body_entered(body: Node2D) -> void:
+		point_scored.emit()

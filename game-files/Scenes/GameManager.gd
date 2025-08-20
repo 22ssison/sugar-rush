@@ -13,7 +13,7 @@ extends Node
 var points = 0
 var total_points = 0
 var high_score = 0
-
+var overall_score = 0
 func _ready():
 	
 	bird.game_started.connect(on_game_started)
@@ -34,13 +34,13 @@ func end_game():
 	bird.kill()
 	pipe_spawner.stop( )
 	ui.on_game_over( )
- 
-
 	
 	
 func on_point_scored():
 	points += 1
 	total_points += 1
+	overall_score += 1
+	ui.update_total_score(overall_score)  # Update UI display
 	ui.update_high_score(high_score)  # Update UI display
 	if high_score < total_points:
 		high_score = total_points

@@ -11,17 +11,22 @@ signal point_scored
 @onready var sprite2 = $Ground2/Sprite2D
 
 func _ready():
-	sprite2.global_position.x = sprite1.global_position.x + sprite1.texture.get_width()
+	var w1 = sprite1.texture.get_width() * sprite1.global_scale.x
+	sprite2.global_position.x = sprite1.global_position.x + w1
 
 func _process(delta):
 	sprite1.global_position.x += speed * delta
 	sprite2.global_position.x += speed * delta
+	
+	var w1 = sprite1.texture.get_width() * sprite1.global_scale.x
+	var w2 = sprite2.texture.get_width() * sprite2.global_scale.x
+	
 
-	if sprite1.global_position.x < -sprite1.texture.get_width():
-		sprite1.global_position.x = sprite2.global_position.x + sprite2.texture.get_width()
+	if sprite1.global_position.x < -w1:
+		sprite1.global_position.x = sprite2.global_position.x + w2
 
-	if sprite2.global_position.x < -sprite2.texture.get_width():
-		sprite2.global_position.x = sprite1.global_position.x + sprite1.texture.get_width()
+	if sprite2.global_position.x < -w2:
+		sprite2.global_postion.x = sprite2.global_position.x + w1
 
 func on_point_scored(body):
 	speed += 15

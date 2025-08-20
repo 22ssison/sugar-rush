@@ -21,7 +21,7 @@ size = Vector2(15.9, 268.5)
 script = ExtResource("1_d5igu")
 
 [node name="TopPipe" type="Area2D" parent="."]
-position = Vector2(4, -997)
+position = Vector2(14, -1240)
 rotation = 3.14159
 scale = Vector2(3, 4)
 
@@ -41,7 +41,7 @@ scale = Vector2(0.15, 0.19)
 texture = ExtResource("4_1wd7e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe"]
-position = Vector2(1.33415, -101.625)
+position = Vector2(1.33368, -102.5)
 shape = SubResource("RectangleShape2D_wsb3u")
 
 [node name="waferpipe" type="Sprite2D" parent="TopPipe"]
@@ -78,6 +78,7 @@ scale = Vector2(0.19, 0.23)
 texture = ExtResource("5_1wd7e")
 
 [node name="Scored" type="Area2D" parent="."]
+position = Vector2(31, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scored"]
 position = Vector2(-19.5, 0.499969)
@@ -87,7 +88,7 @@ shape = SubResource("RectangleShape2D_e6bhp")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-10, 211)
+position = Vector2(-10, 214)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-12.9999, -1405)

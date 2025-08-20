@@ -32,6 +32,7 @@ var hidden_points = 0
 var current_theme_index = 0
 
 func _ready():
+	#pipe_speed = -1000
 	spawn_timer.start()
 	randomize()
 

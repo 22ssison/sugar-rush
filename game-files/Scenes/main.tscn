@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
 [ext_resource type="Texture2D" uid="uid://bxhv66rerjcou" path="res://Assets/wreck-it-ralph-og-test.jpg" id="2_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
-[ext_resource type="Texture2D" uid="uid://2ytuyvhkrue0" path="res://Assets/Petite Fleur de lis Wallpaper.jpg" id="3_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://blkra1phmbl3f" path="res://Assets/Fly South FJ30807.jpg" id="4_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://kbrqe3motous" path="res://Assets/ChatGPT Image Aug 16, 2025, 05_44_36 PM.png" id="3_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://bvgl5n4gffvhk" path="res://Assets/ChatGPT Image Aug 14, 2025 at 01_00_45 PM.png" id="4_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://c83lxxlske31p" path="res://Assets/14eda7247725670aa0e91d6fd1801522.jpg" id="5_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://cf0ytld8ti6jf" path="res://Assets/ChatGPT Image Aug 14, 2025 at 12_42_54 PM.png" id="5_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://blor60n0ixx28" path="res://Scenes/ui.tscn" id="6_21xkr"]
 [ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://b3svv5wjkwngl" path="res://Assets/lolipop-pipe.png" id="11_d1ilt"]
@@ -29,18 +29,20 @@ scale = Vector2(2.63981, 3.47372)
 texture = ExtResource("2_fdnlq")
 
 [node name="Background 3" type="Sprite2D" parent="."]
-position = Vector2(-10.9758, 148.431)
-scale = Vector2(3.92385, 2.93596)
+position = Vector2(31.0008, 56.4464)
+scale = Vector2(1.91927, 1.8878)
 texture = ExtResource("3_fdnlq")
 
 [node name="Background 2" type="Sprite2D" parent="."]
-position = Vector2(-10, 150)
-scale = Vector2(4.8, 3.5)
+visible = false
+position = Vector2(-2, -139)
+scale = Vector2(1.86849, 1.48437)
 texture = ExtResource("4_fdnlq")
 
 [node name="Background 1" type="Sprite2D" parent="."]
-position = Vector2(-977, -41)
-scale = Vector2(3.99883, 3.18055)
+visible = false
+position = Vector2(-9.37613, -264.5)
+scale = Vector2(1.89111, 1.54004)
 texture = ExtResource("5_fdnlq")
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
@@ -49,12 +51,21 @@ pipe_speed = -450
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Ground" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(227, 738)
+position = Vector2(223, 738)
 scale = Vector2(10, 4.2)
 
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
+
+[node name="TotalPointsLabel" type="Label" parent="UI"]
+offset_left = 368.0
+offset_top = 131.0
+offset_right = 848.0
+offset_bottom = 319.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 140
+text = "Hi"
 
 [node name="moon" type="Label" parent="UI"]
 modulate = Color(0, 0, 0, 1)
@@ -101,11 +112,11 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_wsu2k")
 text = "speed"
 
 [node name="Title" type="Button" parent="UI"]
-offset_left = 670.0
-offset_top = 9.0
-offset_right = 2214.0
-offset_bottom = 1041.0
-scale = Vector2(1, 0.8)
+offset_left = 1190.0
+offset_top = -4284.0
+offset_right = 2734.0
+offset_bottom = -3252.0
+scale = Vector2(10, 10)
 icon = ExtResource("13_fdnlq")
 flat = true
 
@@ -116,6 +127,12 @@ offset_right = 2297.0
 offset_bottom = 233.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 140
+
+[node name="Menu bar" type="Label" parent="UI"]
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 920.0
+offset_bottom = 375.0
+text = "menu"
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
