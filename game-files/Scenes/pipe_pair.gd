@@ -52,6 +52,7 @@ func _on_body_entered(body):
 func on_point_scored(body):
 	speed += 35
 	point_scored.emit()
+	
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

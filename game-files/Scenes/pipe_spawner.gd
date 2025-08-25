@@ -33,10 +33,15 @@ var current_pipe_skin_index = 0
 var hidden_points = 0
 var current_theme_index = 0
 
+func update_spawn_rate():
+	var base_gap = 1100.0  # how many pixels apart pipes should be
+	spawn_timer.wait_time = base_gap / abs(pipe_speed)
+
 func _ready():
-	#pipe_speed = -1000
+	update_spawn_rate()
 	spawn_timer.start()
 	randomize()
+	
 
 func start_spawning_pipes():
 	spawn_timer.timeout.connect(spawn_pipe)
@@ -98,3 +103,4 @@ func _update_theme(index):
 
 func _on_speed_button_pressed():
 	pipe_speed = -1000
+	update_spawn_rate()
