@@ -25,26 +25,27 @@ var difficulty_timer: Timer = null
 ]
 
 @export var pipe_speed: float = -500
+@export var base_gap: float = 1500.0            # normal mode
+@export var speed_mode_base_gap: float = 900.0  # speed mode smaller spacing
+@export var min_wait_time: float = 0.5         # absolute minimum spawn interval
+@export var max_difficulty_points: int = 25
+@export var point_scale_factor: float = 0.02
+@export var time_scale_factor: float = 0.01
+
 @onready var pointsound: AudioStreamPlayer = $pointsound
 
 var current_pipe_skin_index := 0
 var hidden_points := 0
 var current_theme_index := 0
 var game_started := false
-
-# --- Difficulty & spawn settings ---
-@export var base_gap: float = 1500.0         # starting distance between pipes
-@export var min_wait_time: float = 0.9       # absolute minimum spawn interval
-@export var max_difficulty_points: int = 25  # cap for point-based difficulty
-@export var point_scale_factor: float = 0.02 # decrease per point
-@export var time_scale_factor: float = 0.01  # decrease per second
+var speed_mode_active := false
 
 func _ready():
+	randomize()
 	update_spawn_rate()
 	ensure_spawn_connection()
 	ensure_difficulty_timer()
-	randomize()
-	stop()  # ensure no pipes spawn at hover screen
+	stop()  # no pipes on initial hover screen
 
 # --- START / STOP ---
 func start_game():
@@ -76,7 +77,7 @@ func ensure_difficulty_timer():
 	if difficulty_timer == null:
 		difficulty_timer = Timer.new()
 		difficulty_timer.name = "DifficultyTimer"
-		difficulty_timer.wait_time = 1.0
+		difficulty_timer.wait_time = 0.8
 		difficulty_timer.one_shot = false
 		add_child(difficulty_timer)
 	if not difficulty_timer.timeout.is_connected(_on_difficulty_timer_timeout):
@@ -94,14 +95,13 @@ func spawn_pipe():
 	if camera == null:
 		print("Camera2D not found!")
 		return
-
 	var viewport_size = get_viewport().get_visible_rect().size
 	pipe.position.x = camera.global_position.x + (viewport_size.x / 2) + 100
 
 	var min_y = camera.global_position.y - (viewport_size.y / 2) + (viewport_size.y * 0.2)
 	var max_y = camera.global_position.y - (viewport_size.y / 2) + (viewport_size.y * 0.7)
 
-	# Reduce gap gradually but cap it
+	# Gradual gap reduction with cap
 	if hidden_points > 0:
 		var gap_ratio = min(hidden_points, max_difficulty_points) / max_difficulty_points
 		var gap_reduction: float = gap_ratio * 0.15 * (max_y - min_y)
@@ -124,7 +124,7 @@ func on_point_scored():
 	point_scored.emit()
 	pointsound.play()
 
-	# Exponential point-based scaling
+	# Point-based scaling
 	if hidden_points <= max_difficulty_points:
 		spawn_timer.wait_time *= (1.0 - point_scale_factor)
 		spawn_timer.wait_time = max(spawn_timer.wait_time, min_wait_time)
@@ -144,13 +144,15 @@ func _update_theme(index):
 
 # --- SPEED MODE ---
 func _on_speed_button_pressed():
-	pipe_speed = -1000
+	speed_mode_active = true
+	pipe_speed = -1000  # super fast immediately
 	update_spawn_rate()
 
 # --- UPDATE SPAWN RATE ---
 func update_spawn_rate():
+	var gap = speed_mode_base_gap if speed_mode_active else base_gap
 	var denom: float = max(absf(pipe_speed), 1.0)
-	var wait_time: float = base_gap / denom
+	var wait_time: float = gap / denom
 	spawn_timer.wait_time = max(wait_time, min_wait_time)
 
 func _on_difficulty_timer_timeout():

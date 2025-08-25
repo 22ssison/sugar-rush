@@ -19,15 +19,14 @@ func _ready():
 	ground.bird_crashed.connect(end_game)
 	pipe_spawner.bird_crashed.connect(end_game)
 	pipe_spawner.point_scored.connect(on_point_scored)
-	load_high_score()  # Load high score at start
+	load_high_score()
 
 func on_game_started():
 	# Hide menu/UI elements
 	label.visible = false
 	title_banner.visible = false
 	title.visible = false
-
-	# Start spawning pipes and difficulty scaling
+	# Start spawning pipes
 	pipe_spawner.start_game()
 
 func end_game():
