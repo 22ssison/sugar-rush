@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cwrko88y1fpoh"]
+[gd_scene load_steps=22 format=3 uid="uid://cwrko88y1fpoh"]
 
 [ext_resource type="Script" uid="uid://ctc1i1gh6hlb5" path="res://bird.gd" id="1_vl8r2"]
 [ext_resource type="Texture2D" uid="uid://6efbhy5exngx" path="res://Assets/marshmallowbird-downflap.png" id="3_xf4a6"]
@@ -13,6 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://clts3k0ra2t1q" path="res://Assets/chocbird-downflap.png" id="12_ktp83"]
 [ext_resource type="Texture2D" uid="uid://cvjohr3ai315n" path="res://Assets/chocbird-midflap.png" id="13_o08xy"]
 [ext_resource type="Texture2D" uid="uid://dfjbbrtvwa4tq" path="res://Assets/chocbird-upflap.png" id="14_ktp83"]
+[ext_resource type="AudioStream" uid="uid://bf27oor2oqkw8" path="res://Assets/wing-flap-1-6434.mp3" id="14_o08xy"]
+[ext_resource type="AudioStream" uid="uid://bs3c0ik2u7oj8" path="res://Assets/crashsound.mp3" id="15_ktp83"]
+[ext_resource type="AudioStream" uid="uid://cflocw41jtc1d" path="res://Assets/gamemusic.mp3" id="16_7euia"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vl8r2"]
 radius = 8.33333
@@ -192,3 +195,15 @@ texture_filter = 1
 position = Vector2(-1.19209e-07, 0)
 scale = Vector2(0.596814, 0.663193)
 texture = ExtResource("3_xf4a6")
+
+[node name="flapsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_o08xy")
+volume_db = -16.0
+
+[node name="crashsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_ktp83")
+volume_db = -16.0
+
+[node name="menumusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_7euia")
+volume_db = -16.0

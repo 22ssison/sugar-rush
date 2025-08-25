@@ -26,9 +26,9 @@ func _process(delta):
 		sprite1.global_position.x = sprite2.global_position.x + w2
 
 	if sprite2.global_position.x < -w2:
-		sprite2.global_postion.x = sprite2.global_position.x + w1
+		sprite2.global_position.x = sprite1.global_position.x + w1
 
-func on_point_scored(body):
+func on_point_scored(body): 
 	speed += 15
 	point_scored.emit()
 

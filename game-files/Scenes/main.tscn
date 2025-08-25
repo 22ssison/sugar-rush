@@ -1,18 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=18 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
-[ext_resource type="Texture2D" uid="uid://bxhv66rerjcou" path="res://Assets/wreck-it-ralph-og-test.jpg" id="2_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://c68b6yvul50lx" path="res://Assets/ -24.jpg" id="2_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
-[ext_resource type="Texture2D" uid="uid://kbrqe3motous" path="res://Assets/ChatGPT Image Aug 16, 2025, 05_44_36 PM.png" id="3_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://bvgl5n4gffvhk" path="res://Assets/ChatGPT Image Aug 14, 2025 at 01_00_45 PM.png" id="4_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://owe0lc2c1g8w" path="res://Assets/midnight.png" id="3_fdnlq"]
+[ext_resource type="AudioStream" uid="uid://cflocw41jtc1d" path="res://Assets/gamemusic.mp3" id="3_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://dvvpho11x0dfs" path="res://Assets/ChatGPT Image Aug 24, 2025 at 11_50_17 AM (1).png" id="4_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
-[ext_resource type="Texture2D" uid="uid://cf0ytld8ti6jf" path="res://Assets/ChatGPT Image Aug 14, 2025 at 12_42_54 PM.png" id="5_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://bkctjabwagc8x" path="res://Assets/magnificentbackground (1).png" id="5_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://blor60n0ixx28" path="res://Scenes/ui.tscn" id="6_21xkr"]
+[ext_resource type="AudioStream" uid="uid://blslebxe0f01l" path="res://Assets/losinghorn.mp3" id="7_jkdf5"]
 [ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="10_hptm8"]
-[ext_resource type="Texture2D" uid="uid://b3svv5wjkwngl" path="res://Assets/lolipop-pipe.png" id="11_d1ilt"]
+[ext_resource type="Texture2D" uid="uid://cqt36godcsaem" path="res://Assets/moon.png" id="11_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://t7jcgjlg7mvx" path="res://Assets/marshmallow-pipe.png" id="12_6iyac"]
-[ext_resource type="Texture2D" uid="uid://b60suk5x1esux" path="res://Assets/titlebanner.png" id="13_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://dnqdc8pwegx8t" path="res://Assets/realfinaltitlebanner.png" id="13_fdnlq"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdnlq"]
 
@@ -23,26 +25,32 @@
 [node name="GameManager" type="Node" parent="."]
 script = ExtResource("1_kry3j")
 
+[node name="loosinghorn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_jkdf5")
+volume_db = -16.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wsu2k")
+volume_db = -33.0
+
 [node name="Background 4" type="Sprite2D" parent="."]
-position = Vector2(337, 446.438)
-scale = Vector2(2.63981, 3.47372)
+position = Vector2(3.85461, -190.421)
+scale = Vector2(3.91616, 3.41749)
 texture = ExtResource("2_fdnlq")
 
 [node name="Background 3" type="Sprite2D" parent="."]
-position = Vector2(31.0008, 56.4464)
-scale = Vector2(1.91927, 1.8878)
+position = Vector2(-4, -209.5)
+scale = Vector2(1.06889, 0.822222)
 texture = ExtResource("3_fdnlq")
 
 [node name="Background 2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-2, -139)
-scale = Vector2(1.86849, 1.48437)
+position = Vector2(4.3025, -139)
+scale = Vector2(1.87673, 1.48437)
 texture = ExtResource("4_fdnlq")
 
 [node name="Background 1" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-9.37613, -264.5)
-scale = Vector2(1.89111, 1.54004)
+position = Vector2(4.49987, -188)
+scale = Vector2(0.37487, 0.257938)
 texture = ExtResource("5_fdnlq")
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
@@ -58,37 +66,28 @@ scale = Vector2(10, 4.2)
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 
-[node name="TotalPointsLabel" type="Label" parent="UI"]
-offset_left = 368.0
-offset_top = 131.0
-offset_right = 848.0
-offset_bottom = 319.0
+[node name="Moon Button" type="Button" parent="UI"]
+offset_left = 73.0
+offset_top = 128.0
+offset_right = 1296.0
+offset_bottom = 1672.0
+scale = Vector2(0.15, 0.152)
 theme_override_fonts/font = ExtResource("10_hptm8")
-theme_override_font_sizes/font_size = 140
-text = "Hi"
+theme_override_font_sizes/font_size = 40
+icon = ExtResource("11_fdnlq")
+flat = true
 
 [node name="moon" type="Label" parent="UI"]
 modulate = Color(0, 0, 0, 1)
 top_level = true
-offset_left = 219.0
-offset_top = 214.0
-offset_right = 519.0
-offset_bottom = 514.0
+offset_left = 108.0
+offset_top = 213.0
+offset_right = 408.0
+offset_bottom = 513.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fdnlq")
 text = "moon"
-
-[node name="Moon Button" type="Button" parent="UI"]
-offset_left = 28.0
-offset_top = 77.0
-offset_right = 1060.0
-offset_bottom = 1621.0
-scale = Vector2(0.2, 0.202)
-theme_override_fonts/font = ExtResource("10_hptm8")
-theme_override_font_sizes/font_size = 40
-icon = ExtResource("11_d1ilt")
-flat = true
 
 [node name="Speed Button" type="Button" parent="UI"]
 offset_left = 77.9999
@@ -111,14 +110,23 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wsu2k")
 text = "speed"
 
-[node name="Title" type="Button" parent="UI"]
-offset_left = 1190.0
-offset_top = -4284.0
-offset_right = 2734.0
-offset_bottom = -3252.0
-scale = Vector2(10, 10)
+[node name="Title Banner" type="Button" parent="UI"]
+offset_left = 675.0
+offset_top = 6.0
+offset_right = 3743.0
+offset_bottom = 2054.0
+scale = Vector2(0.5, 0.5)
 icon = ExtResource("13_fdnlq")
 flat = true
+
+[node name="Title" type="Label" parent="UI"]
+offset_left = 1083.0
+offset_top = 464.0
+offset_right = 1794.0
+offset_bottom = 652.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 140
+text = "Sugar Rush"
 
 [node name="HighScoreLabel" type="Label" parent="UI"]
 offset_left = 1817.0
@@ -130,9 +138,20 @@ theme_override_font_sizes/font_size = 140
 
 [node name="Menu bar" type="Label" parent="UI"]
 self_modulate = Color(0, 0, 0, 1)
-offset_right = 920.0
-offset_bottom = 375.0
+offset_left = -35.0
+offset_top = 302.0
+offset_right = 885.0
+offset_bottom = 677.0
 text = "menu"
+
+[node name="TotalPointsLabel" type="Label" parent="UI"]
+visible = false
+offset_left = 502.0
+offset_top = 95.0
+offset_right = 982.0
+offset_bottom = 283.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 140
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)

@@ -25,6 +25,8 @@ var pipe_pair_scene = preload("res://Scenes/pipe_pair.tscn")
 ]
 
 @export var pipe_speed = -500
+@onready var pointsound: AudioStreamPlayer = $pointsound
+
 
 var current_pipe_skin_index = 0
 
@@ -72,6 +74,7 @@ func stop():
 func on_point_scored():
 	hidden_points += 1
 	point_scored.emit()
+	pointsound.play()
 
 	if hidden_points % 1 == 0:
 		current_theme_index = (current_theme_index + 1) % background_list.size()
@@ -94,4 +97,4 @@ func _update_theme(index):
 	current_pipe_skin_index = index % 4
 
 func _on_speed_button_pressed():
-	pipe_speed = -300
+	pipe_speed = -1000

@@ -5,8 +5,9 @@ extends Node
 @onready var ground: Ground = $"../Ground" as Ground
 @onready var ui: CanvasLayer = $"../UI" as UI
 @onready var label: Label = $"../Label" as Label
-@onready var title: Button = $"../UI/Title"
-
+@onready var title_banner: Button = $"../UI/Title Banner"
+@onready var title: Label = $"../UI/Title"
+@onready var loosinghorn: AudioStreamPlayer = $"../loosinghorn"
  #to implement different background just create background 3 and 4
 # then implement it on randomize()
 
@@ -14,7 +15,7 @@ var points = 0
 var total_points = 0
 var high_score = 0
 var overall_score = 0
-func _ready():
+func _ready():			
 	
 	bird.game_started.connect(on_game_started)
 	ground.bird_crashed.connect(end_game)
@@ -26,6 +27,7 @@ func _ready():
 	   
 func on_game_started(): 
 	label.visible = false # description of the game at the start.
+	title_banner.visible = false
 	title.visible = false
 	pipe_spawner.start_spawning_pipes()
 	
@@ -34,6 +36,7 @@ func end_game():
 	bird.kill()
 	pipe_spawner.stop( )
 	ui.on_game_over( )
+	loosinghorn.play()
 	
 	
 func on_point_scored():

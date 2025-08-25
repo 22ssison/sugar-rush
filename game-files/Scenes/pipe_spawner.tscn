@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqw4hqu7rjpfx"]
+[gd_scene load_steps=3 format=3 uid="uid://dqw4hqu7rjpfx"]
 
 [ext_resource type="Script" uid="uid://c7wmwxbj7ivwg" path="res://Scenes/pipe_spawner.gd" id="1_uc0l5"]
+[ext_resource type="AudioStream" uid="uid://5t8s1n1eypcw" path="res://Assets/pointsound.mp3" id="2_xyd7y"]
 
 [node name="PipeSpawner" type="Node"]
 script = ExtResource("1_uc0l5")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="pointsound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xyd7y")
+volume_db = -16.0
