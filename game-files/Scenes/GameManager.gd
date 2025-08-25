@@ -8,46 +8,44 @@ extends Node
 @onready var title_banner: Button = $"../UI/Title Banner"
 @onready var title: Label = $"../UI/Title"
 @onready var loosinghorn: AudioStreamPlayer = $"../loosinghorn"
- #to implement different background just create background 3 and 4
-# then implement it on randomize()
 
 var points = 0
 var total_points = 0
 var high_score = 0
 var overall_score = 0
+
 func _ready():			
-	
 	bird.game_started.connect(on_game_started)
 	ground.bird_crashed.connect(end_game)
 	pipe_spawner.bird_crashed.connect(end_game)
 	pipe_spawner.point_scored.connect(on_point_scored)
-	
-	load_high_score()               # Load high score at start
+	load_high_score()  # Load high score at start
 
-	   
-func on_game_started(): 
-	label.visible = false # description of the game at the start.
+func on_game_started():
+	# Hide menu/UI elements
+	label.visible = false
 	title_banner.visible = false
 	title.visible = false
-	pipe_spawner.start_spawning_pipes()
-	
+
+	# Start spawning pipes and difficulty scaling
+	pipe_spawner.start_game()
+
 func end_game():
 	ground.stop()
 	bird.kill()
-	pipe_spawner.stop( )
-	ui.on_game_over( )
+	pipe_spawner.stop()
+	ui.on_game_over()
 	loosinghorn.play()
-	
 	
 func on_point_scored():
 	points += 1
 	total_points += 1
 	overall_score += 1
-	ui.update_total_score(overall_score)  # Update UI display
-	ui.update_high_score(high_score)  # Update UI display
+	ui.update_total_score(overall_score)
+	ui.update_high_score(high_score)
 	if high_score < total_points:
 		high_score = total_points
-		save_high_score()           # Save immediately on new high score
+		save_high_score()
 	ui.update_points(points)
 	
 func save_high_score():
@@ -62,13 +60,9 @@ func load_high_score():
 		high_score = config.get_value("scores", "high_score", 0)
 	else:
 		high_score = 0
-	
-# implement the random function to spawn random background, birds, etc all together. 
-
 
 func _on_point_button_pressed() -> void:
 	on_point_scored()
-
 
 func _on_reset_point_pressed() -> void:
 	high_score = 0

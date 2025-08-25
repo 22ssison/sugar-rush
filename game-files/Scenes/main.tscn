@@ -54,7 +54,6 @@ scale = Vector2(0.37487, 0.257938)
 texture = ExtResource("5_fdnlq")
 
 [node name="PipeSpawner" parent="." instance=ExtResource("4_jjvhh")]
-pipe_speed = -450
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
