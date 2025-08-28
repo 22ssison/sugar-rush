@@ -1,13 +1,23 @@
 extends Node
+@onready var bird: Bird = $"../Bird"
+@onready var control: Control = $"../Control"
 
-@onready var bird: Bird = $"../Bird" as Bird
-@onready var pipe_spawner: PipeSpawner = $"../PipeSpawner" as PipeSpawner
-@onready var ground: Ground = $"../Ground" as Ground
-@onready var ui: CanvasLayer = $"../UI" as UI
-@onready var label: Label = $"../Label" as Label
+@onready var pipe_spawner: PipeSpawner = $"../PipeSpawner"
+
+@onready var ground: Ground = $"../Ground"
+@onready var ui: UI = $"../UI"
+@onready var press_space_to_fly: Label = $"../press space to fly"
 @onready var title_banner: Button = $"../UI/Title Banner"
 @onready var title: Label = $"../UI/Title"
 @onready var loosinghorn: AudioStreamPlayer = $"../loosinghorn"
+@onready var moon: Label = $"../UI/moon"
+@onready var moon_button: Button = $"../UI/Moon Button"
+@onready var speed_button: Button = $"../UI/Speed Button"
+@onready var gameplaydescriptions: Button = $"../UI/gameplaydescriptions"
+@onready var label: Label = $"../Control/Label"
+@onready var exit: Button = $"../Control/Label/exit"
+@onready var instructions: Label = $"../instructions"
+
 
 var points = 0
 var total_points = 0
@@ -23,11 +33,19 @@ func _ready():
 
 func on_game_started():
 	# Hide menu/UI elements
-	label.visible = false
+	press_space_to_fly.visible = false
+	instructions.visible = false
 	title_banner.visible = false
 	title.visible = false
 	# Start spawning pipes
 	pipe_spawner.start_game()
+	moon.visible = false
+	moon_button.visible = false
+	speed_button.visible = false
+	gameplaydescriptions.visible = false
+	label.visible = false
+	exit.visible = false
+	
 
 func end_game():
 	ground.stop()

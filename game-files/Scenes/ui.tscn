@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://blor60n0ixx28"]
+[gd_scene load_steps=6 format=3 uid="uid://blor60n0ixx28"]
 
 [ext_resource type="Script" uid="uid://crpbuopeu70j5" path="res://Scenes/ui.gd" id="1_qdvrb"]
 [ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="2_nf4gj"]
-[ext_resource type="Texture2D" uid="uid://b60suk5x1esux" path="res://Assets/titlebanner.png" id="3_nf4gj"]
+[ext_resource type="Texture2D" uid="uid://cxflmkp10jlj1" path="res://Assets/restarticon.png" id="4_2246s"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxero"]
-bg_color = Color(0.635294, 0.698039, 0.721569, 1)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nf4gj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2246s"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_qdvrb")
@@ -38,17 +39,18 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Title" type="TextureRect" parent="MarginContainer/GameOverBox"]
-visible = false
-layout_mode = 2
-texture = ExtResource("3_nf4gj")
-
 [node name="Panel" type="Panel" parent="MarginContainer/GameOverBox"]
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_jxero")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_nf4gj")
+
+[node name="Restarticon" type="Sprite2D" parent="MarginContainer/GameOverBox/Panel"]
+position = Vector2(1468, 84)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_2246s")
 
 [node name="reset_button" type="Button" parent="MarginContainer/GameOverBox/Panel"]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -62,8 +64,18 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_nf4gj")
-theme_override_font_sizes/font_size = 90
-text = "RESTART "
-flat = true
+theme_override_font_sizes/font_size = 180
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2246s")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2246s")
+text = "Restart"
 
 [connection signal="pressed" from="MarginContainer/GameOverBox/Panel/reset_button" to="." method="_on_reset_button_pressed"]

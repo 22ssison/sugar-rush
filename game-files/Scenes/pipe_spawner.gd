@@ -31,7 +31,8 @@ var difficulty_timer: Timer = null
 @export var max_difficulty_points: int = 25
 @export var point_scale_factor: float = 0.02
 @export var time_scale_factor: float = 0.01
-
+@onready var moon: Label = $"../UI/moon"
+@onready var speed_button: Button = $"../UI/Speed Button"
 @onready var pointsound: AudioStreamPlayer = $pointsound
 
 var current_pipe_skin_index := 0
@@ -103,10 +104,11 @@ func spawn_pipe():
 
 	# Gradual gap reduction with cap
 	if hidden_points > 0:
-		var gap_ratio = min(hidden_points, max_difficulty_points) / max_difficulty_points
+		var gap_ratio = min(hidden_points, max_difficulty_points) / max_difficulty_points #pipe cap
 		var gap_reduction: float = gap_ratio * 0.15 * (max_y - min_y)
 		min_y += gap_reduction * 0.5
 		max_y -= gap_reduction * 0.5
+		# pipe gaps get smaller so it spawns multiple pipes over time
 
 	pipe.position.y = randf_range(min_y, max_y)
 
@@ -129,24 +131,33 @@ func on_point_scored():
 		spawn_timer.wait_time *= (1.0 - point_scale_factor)
 		spawn_timer.wait_time = max(spawn_timer.wait_time, min_wait_time)
 
-	# Cycle themes
-	current_theme_index = (current_theme_index + 1) % background_list.size()
-	_update_theme(current_theme_index)
+	# Update birds + pipe skins every point
+	var bird_pipe_index = hidden_points % bird_list.size()
+	_update_bird_and_pipes(bird_pipe_index)
 
-# --- THEME SWITCH ---
-func _update_theme(index):
-	for i in range(background_list.size()):
-		background_list[i].visible = (i == index)
+	# Update background every 3 points only
+	if hidden_points % 3 == 0:
+		current_theme_index = (current_theme_index + 1) % background_list.size()
+		_update_background(current_theme_index)
+
+
+# --- HELPER FUNCTIONS ---
+func _update_bird_and_pipes(index):
 	for i in range(bird_list.size()):
 		if bird_list[i] != null:
-			bird_list[i].visible = (i == index % bird_list.size())
+			bird_list[i].visible = (i == index)
 	current_pipe_skin_index = index % 4
+
+func _update_background(index):
+	for i in range(background_list.size()):
+		background_list[i].visible = (i == index)
 
 # --- SPEED MODE ---
 func _on_speed_button_pressed():
 	speed_mode_active = true
 	pipe_speed = -1000  # super fast immediately
 	update_spawn_rate()
+	speed_button.visible = false
 
 # --- UPDATE SPAWN RATE ---
 func update_spawn_rate():

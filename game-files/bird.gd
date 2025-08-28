@@ -12,6 +12,8 @@ signal game_started
 @onready var flapsound: AudioStreamPlayer = $flapsound
 @onready var crashsound: AudioStreamPlayer = $crashsound
 @onready var menumusic: AudioStreamPlayer = $menumusic
+@onready var moon: Label = $"../UI/moon"
+@onready var moon_button: Button = $"../UI/Moon Button"
 
 var max_speed = 1600
 var is_started = false
@@ -64,3 +66,5 @@ func stop():
 func _on_moon_button_pressed():
 	gravity = 450
 	jump_force = -300
+	moon.visible = false
+	moon_button.visible = false

@@ -42,3 +42,7 @@ func stop():
 	
 func _on_button_2_pressed():
 	speed = -300
+
+
+func _on_roof_body_entered(body: Node2D) -> void:
+	bird_crashed.emit()

@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://b24wbnt33abqu"]
+[gd_scene load_steps=32 format=3 uid="uid://b24wbnt33abqu"]
 
 [ext_resource type="PackedScene" uid="uid://cwrko88y1fpoh" path="res://Scenes/bird.tscn" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://dbbwt1qi3iokd" path="res://Scenes/GameManager.gd" id="1_kry3j"]
-[ext_resource type="Texture2D" uid="uid://c68b6yvul50lx" path="res://Assets/ -24.jpg" id="2_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://c1vhhrq4u0pv8" path="res://Scenes/character_body_2d.tscn" id="3_8gbba"]
 [ext_resource type="Texture2D" uid="uid://owe0lc2c1g8w" path="res://Assets/midnight.png" id="3_fdnlq"]
 [ext_resource type="AudioStream" uid="uid://cflocw41jtc1d" path="res://Assets/gamemusic.mp3" id="3_wsu2k"]
+[ext_resource type="Texture2D" uid="uid://82xem0wuvqhl" path="res://Assets/galaxybackground.png" id="4_b3802"]
 [ext_resource type="Texture2D" uid="uid://dvvpho11x0dfs" path="res://Assets/ChatGPT Image Aug 24, 2025 at 11_50_17 AM (1).png" id="4_fdnlq"]
 [ext_resource type="PackedScene" uid="uid://dqw4hqu7rjpfx" path="res://Scenes/pipe_spawner.tscn" id="4_jjvhh"]
 [ext_resource type="Texture2D" uid="uid://bkctjabwagc8x" path="res://Assets/magnificentbackground (1).png" id="5_fdnlq"]
@@ -13,12 +13,40 @@
 [ext_resource type="AudioStream" uid="uid://blslebxe0f01l" path="res://Assets/losinghorn.mp3" id="7_jkdf5"]
 [ext_resource type="FontFile" uid="uid://bqsttdiwfbf1m" path="res://Assets/PlayfairDisplay-VariableFont_wght.ttf" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://cqt36godcsaem" path="res://Assets/moon.png" id="11_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://t7jcgjlg7mvx" path="res://Assets/marshmallow-pipe.png" id="12_6iyac"]
 [ext_resource type="Texture2D" uid="uid://dnqdc8pwegx8t" path="res://Assets/realfinaltitlebanner.png" id="13_fdnlq"]
+[ext_resource type="Texture2D" uid="uid://0yhff1b5cy7d" path="res://Assets/pipespeed.png" id="14_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://bs567i5bwwpvc" path="res://Assets/ChatGPT Image Aug 26, 2025 at 03_24_00 AM.png" id="16_b3802"]
+[ext_resource type="Texture2D" uid="uid://cjb2i0fmoe11t" path="res://Assets/f93bd81d-f2ba-45da-b9d7-acca390dc828.png" id="17_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://cgsyqchkpbhhp" path="res://Assets/exit.png" id="18_b3802"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3802"]
+size = Vector2(313, 11)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdnlq"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wsu2k"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k12tt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h1bgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3802"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fevyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hibaj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pdsj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ee4r6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gt3je"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3pmx8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h1bgf"]
+texture = ExtResource("17_h1bgf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fevyy"]
+texture = ExtResource("18_b3802")
 
 [node name="main" type="Node"]
 
@@ -34,9 +62,9 @@ stream = ExtResource("3_wsu2k")
 volume_db = -33.0
 
 [node name="Background 4" type="Sprite2D" parent="."]
-position = Vector2(3.85461, -190.421)
-scale = Vector2(3.91616, 3.41749)
-texture = ExtResource("2_fdnlq")
+position = Vector2(-9, -62)
+scale = Vector2(0.698136, 0.64016)
+texture = ExtResource("4_b3802")
 
 [node name="Background 3" type="Sprite2D" parent="."]
 position = Vector2(-4, -209.5)
@@ -61,15 +89,23 @@ texture = ExtResource("5_fdnlq")
 position = Vector2(223, 738)
 scale = Vector2(10, 4.2)
 
+[node name="roof" type="Area2D" parent="."]
+position = Vector2(151, -873)
+scale = Vector2(10, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="roof"]
+position = Vector2(-11.5, -48.5)
+shape = SubResource("RectangleShape2D_b3802")
+
 [node name="Bird" parent="." instance=ExtResource("1_jjgbg")]
 
 [node name="UI" parent="." instance=ExtResource("6_21xkr")]
 
 [node name="Moon Button" type="Button" parent="UI"]
-offset_left = 73.0
-offset_top = 128.0
-offset_right = 1296.0
-offset_bottom = 1672.0
+offset_left = 136.0
+offset_top = 143.0
+offset_right = 1359.0
+offset_bottom = 2932.0
 scale = Vector2(0.15, 0.152)
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 40
@@ -79,35 +115,25 @@ flat = true
 [node name="moon" type="Label" parent="UI"]
 modulate = Color(0, 0, 0, 1)
 top_level = true
-offset_left = 108.0
-offset_top = 213.0
-offset_right = 408.0
-offset_bottom = 513.0
+offset_left = 46.0
+offset_top = 135.0
+offset_right = 724.0
+offset_bottom = 543.0
 theme_override_fonts/font = ExtResource("10_hptm8")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fdnlq")
-text = "moon"
+text = "Game Play Options
+"
 
 [node name="Speed Button" type="Button" parent="UI"]
-offset_left = 77.9999
-offset_top = 453.0
-offset_right = 1110.0
-offset_bottom = 1997.0
-scale = Vector2(0.2, 0.2)
+offset_left = 394.0
+offset_top = 223.0
+offset_right = 3102.0
+offset_bottom = 2931.0
+scale = Vector2(0.1, 0.1)
 theme_override_fonts/font = ExtResource("10_hptm8")
-icon = ExtResource("12_6iyac")
+icon = ExtResource("14_h1bgf")
 flat = true
-
-[node name="speed" type="Label" parent="UI"]
-modulate = Color(0, 0, 0, 1)
-offset_left = 272.0
-offset_top = 539.0
-offset_right = 548.0
-offset_bottom = 871.0
-theme_override_fonts/font = ExtResource("10_hptm8")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_wsu2k")
-text = "speed"
 
 [node name="Title Banner" type="Button" parent="UI"]
 offset_left = 675.0
@@ -118,15 +144,6 @@ scale = Vector2(0.5, 0.5)
 icon = ExtResource("13_fdnlq")
 flat = true
 
-[node name="Title" type="Label" parent="UI"]
-offset_left = 1083.0
-offset_top = 464.0
-offset_right = 1794.0
-offset_bottom = 652.0
-theme_override_fonts/font = ExtResource("10_hptm8")
-theme_override_font_sizes/font_size = 140
-text = "Sugar Rush"
-
 [node name="HighScoreLabel" type="Label" parent="UI"]
 offset_left = 1817.0
 offset_top = 45.0
@@ -134,14 +151,6 @@ offset_right = 2297.0
 offset_bottom = 233.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 140
-
-[node name="Menu bar" type="Label" parent="UI"]
-self_modulate = Color(0, 0, 0, 1)
-offset_left = -35.0
-offset_top = 302.0
-offset_right = 885.0
-offset_bottom = 677.0
-text = "menu"
 
 [node name="TotalPointsLabel" type="Label" parent="UI"]
 visible = false
@@ -152,7 +161,34 @@ offset_bottom = 283.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 140
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="UI"]
+offset_left = 1083.0
+offset_top = 464.0
+offset_right = 1794.0
+offset_bottom = 652.0
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 140
+text = "Sugar Rush"
+
+[node name="gameplaydescriptions" type="Button" parent="UI"]
+offset_left = 111.0
+offset_top = 389.0
+offset_right = 1834.0
+offset_bottom = 1413.0
+scale = Vector2(0.35, 0.35)
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k12tt")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_h1bgf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_b3802")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fevyy")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_hibaj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_pdsj5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ee4r6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gt3je")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3pmx8")
+text = "Game Play Descriptions"
+icon = ExtResource("16_b3802")
+
+[node name="press space to fly" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 offset_left = 51.0
 offset_top = 24.0
@@ -161,6 +197,57 @@ offset_bottom = 65.0
 theme_override_fonts/font = ExtResource("10_hptm8")
 theme_override_font_sizes/font_size = 30
 text = "Press SPACE to Fly"
+metadata/_edit_use_anchors_ = true
 
+[node name="instructions" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_right = -0.927431
+anchor_bottom = 0.0977778
+offset_left = -60.0
+offset_top = 147.0
+offset_right = 3559.0
+offset_bottom = 188.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("10_hptm8")
+theme_override_font_sizes/font_size = 30
+text = "Use the space bar by clicking it repetitively when appropriate to allow
+ the character to jump and defy the gravity pulling them down. Do not 
+touch the pipes and the ground or else you will die. The objective is to
+ fly through pipe gaps and to gain as many points as you can.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 5.575
+anchor_bottom = 4.75
+offset_left = -725.0
+offset_top = -592.0
+offset_right = 495.0
+offset_bottom = 179.0
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_h1bgf")
+
+[node name="exit" type="Button" parent="Control/Label"]
+layout_mode = 0
+offset_left = 121.0
+offset_top = 17.0
+offset_right = 262.0
+offset_bottom = 157.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_fevyy")
+
+[connection signal="body_entered" from="roof" to="Ground" method="_on_roof_body_entered"]
 [connection signal="pressed" from="UI/Moon Button" to="Bird" method="_on_moon_button_pressed"]
 [connection signal="pressed" from="UI/Speed Button" to="PipeSpawner" method="_on_speed_button_pressed"]
+[connection signal="pressed" from="UI/gameplaydescriptions" to="UI" method="_on_gameplaydescriptions_pressed"]
+[connection signal="pressed" from="Control/Label/exit" to="UI" method="_on_exit_pressed"]
